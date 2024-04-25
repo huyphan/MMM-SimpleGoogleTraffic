@@ -1,10 +1,10 @@
 {
-  "name": "Magic-Mirror-Module-Traffic",
-  "version": "2.0.2",
-  "description": "Google Maps Traffic module for the Magic Mirror.",
+  "name": "Magic-Mirror-Module-Simple-Google-Traffic",
+  "version": "1.0",
+  "description": "Simple Google Maps Traffic module for the Magic Mirror.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SamLewis0602/MMM-Traffic"
+    "url": "git+https://github.com/huyphan/MMM-SimpleGoogleTraffic"
   },
   "keywords": [
     "magic mirror",
@@ -12,15 +12,15 @@
     "traffic",
     "module"
   ],
-  "author": "Sam Lewis",
-  "contributors": "https://github.com/SamLewis0602/MMM-Traffic/graphs/contributors",
+  "author": "Huy Phan",
+  "contributors": "https://github.com/huyphan/MMM-SimpleGoogleTraffic/graphs/contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SamLewis0602/MMM-Traffic/issues"
+    "url": "https://github.com/huyphan/MMM-SimpleGoogleTraffic/issues"
   },
-  "homepage": "https://github.com/SamLewis0602/MMM-Traffic#readme",
+  "homepage": "https://github.com/huyphan/MMM-SimpleGoogleTraffic#readme",
   "dependencies": {
     "moment": "^2.27.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
   }
 }

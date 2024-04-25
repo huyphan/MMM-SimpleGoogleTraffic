@@ -2,12 +2,14 @@
 
 ![module screenshot](screenshots/04-multiple.png)
 
-This a module for the [MagicMirror](https://github.com/MichMich/MagicMirror/tree/develop). It displays travel time between two locations, using the Mapbox directions API to factor in current traffic conditions.
+This a module for the [MagicMirror](https://github.com/MichMich/MagicMirror/tree/develop). It displays travel time between two 
+locations, using the Google Distance Matrix API to retrieve the commute time. This code base is forked and modified from the 
+[MMM-Traffic](https://github.com/SamLewis0602/MMM-Traffic.git) module to make it work with the new Google API. 
 
 # Table of Contents
 
 - [Installation](#installation)
-- [Mapbox Access Token](#mapbox-access-token)
+- [Retrieving API KEy](#retrieving-api-key)
 - [Styling](#styling)
 - [Configuration](#configuration)
   - [Required](#required)
@@ -28,15 +30,15 @@ This a module for the [MagicMirror](https://github.com/MichMich/MagicMirror/tree
 Navigate into your MagicMirror's `modules` folder and execute these commands:
 
 ```shell
-git clone https://github.com/SamLewis0602/MMM-Traffic.git
-cd MMM-Traffic
+git clone https://github.com/huyphan/MMM-SimpleGoogleTraffic 
+cd MMM-SimpleGoogleTraffic
 npm install
 ```
 
-## Mapbox Access Token
+## Retrieving API Key 
 
-1. Create an account at [Mapbox](https://account.mapbox.com/)
-2. Copy the access token visible after account creation (go [here](https://account.mapbox.com/) if you don't see it)
+Follow [Google's instruction](https://developers.google.com/maps/documentation/javascript/get-api-key) to create 
+an API Key. Make sure you give it permissions to use the JavaScript Map API and the Distance Matrix API.
 
 ## Styling
 
@@ -69,7 +71,7 @@ _Note: Google maps coordinates are `latitude,longitude`, but Mapbox uses `longit
 
 | Option              | Description                                  | Type   | Example                   |
 | ------------------- | -------------------------------------------- | ------ | ------------------------- |
-| `accessToken`       | Mapbox access token                          | string | -                         |
+| `apiKey`            | Google Maps API Key                          | string | -                         |
 | `originCoords`      | `longitude,latitude` of the origin location. | string | `'-84.504259,33.882107'` |
 | `destinationCoords` | `longitude,latitude` of the origin location. | string | `'-84.504259,33.882107'` |
 
@@ -119,10 +121,10 @@ rate limited.
 
 ```js
 {
-	module: "MMM-Traffic",
+	module: "MMM-SimpleGoogleTraffic",
 	position: "top_left",
 	config: {
-		accessToken: "your_key_here",
+		apiKey: "your_key_here",
 		originCoords: "-84.398848,33.755165",
 		destinationCoords: "-84.504259,33.88210",
 	}
@@ -135,10 +137,10 @@ rate limited.
 
 ```js
 {
-	module: "MMM-Traffic",
+	module: "MMM-SimpleGoogleTraffic",
 	position: "top_left",
 	config: {
-		accessToken: "your_key_here",
+		apiKey: "your_key_here",
 		originCoords: "-84.398848,33.755165",
 		destinationCoords: "-84.504259,33.88210",
 		showSymbol: false,
@@ -153,10 +155,10 @@ rate limited.
 
 ```js
 {
-	module: "MMM-Traffic",
+	module: "MMM-SimpleGoogleTraffic",
 	position: "top_left",
 	config: {
-		accessToken: "your_key_here",
+		apiKey: "your_key_here",
 		originCoords: "-84.398848,33.755165",
 		destinationCoords: "-84.504259,33.88210",
 		firstLine: "{duration} mins",
@@ -171,10 +173,10 @@ rate limited.
 
 ```js
 {
-	module: "MMM-Traffic",
+	module: "MMM-SimpleGoogleTraffic",
 	position: "top_left",
 	config: {
-		accessToken: "your_key_here",
+		apiKey: "your_key_here",
 		originCoords: "-84.398848,33.755165",
 		destinationCoords: "-84.504259,33.88210",
 		firstLine: "{duration} mins",
@@ -182,10 +184,10 @@ rate limited.
 	}
 },
 {
-	module: "MMM-Traffic",
+	module: "MMM-SimpleGoogleTraffic",
 	position: "top_left",
 	config: {
-		accessToken: "your_key_here",
+		apiKey: "your_key_here",
 		originCoords: "-84.398848,33.755165",
 		destinationCoords: "-84.504259,33.88210",
 		firstLine: "{duration} mins",
@@ -204,10 +206,10 @@ be completely hidden on weekends.
 
 ```js
 {
-	module: "MMM-Traffic",
+	module: "MMM-SimpleGoogleTraffic",
 	position: "top_left",
 	config: {
-		accessToken: "your_key_here",
+		apiKey: "your_key_here",
 		originCoords: "-84.398848,33.755165",
 		destinationCoords: "-84.504259,33.88210",
 		firstLine: "{duration} mins",
@@ -218,10 +220,10 @@ be completely hidden on weekends.
 	}
 },
 {
-	module: "MMM-Traffic",
+	module: "MMM-SimpleGoogleTraffic",
 	position: "top_left",
 	config: {
-		accessToken: "your_key_here",
+		apiKey: "your_key_here",
 		originCoords: "-84.398848,33.755165",
 		destinationCoords: "-84.504259,33.88210",
 		firstLine: "{duration} mins",
@@ -243,8 +245,3 @@ be completely hidden on weekends.
 - [node-fetch](https://www.npmjs.com/package/node-fetch)
 - [moment](https://www.npmjs.com/package/moment)
 
-## Legacy
-
-If you want to continue using the old version with Google Maps and more customization, use the [1.0-not-supported](https://github.com/SamLewis0602/MMM-Traffic/tree/1.0-not-supported) branch.
-
-<b>NOTE</b>: this version is no longer supported, please do not open issues on the repo if you run into issues with this version.
